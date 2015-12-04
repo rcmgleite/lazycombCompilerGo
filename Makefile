@@ -36,4 +36,4 @@ clean:
 	-$(RM) $(O_FILES) $(C_DEPS) lazy
 	-@echo ' '
 
-.PHONY: all clean
+.PHONY: run clean
