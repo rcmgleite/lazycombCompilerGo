@@ -9,7 +9,7 @@ import (
 
 var (
 	generated  bytes.Buffer
-	outputfile string = "out.c"
+	outputfile string = "vm/out.c"
 )
 
 var template = `
