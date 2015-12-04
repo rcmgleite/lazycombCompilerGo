@@ -4,6 +4,7 @@
 
 #include "dqueue.h"
 #include "dlist.h"
+#include "ski.h"
 #include <stdlib.h>
 #include <assert.h>
 #include <stdio.h>

@@ -9,27 +9,31 @@ ifneq ($(strip $(C_DEPS)),)
 endif
 
 # Compile all files from src/source
-src/source/%.o: src/source/%.c
-	@echo 'Building file: $<'
-	@echo 'Invoking: Cross GCC Compiler'
+vm/%.o: vm/%.c
+	@echo ' '
+	@echo '[INFO] Building file: $<'
+	@echo '[INFO] Invoking: Cross GCC Compiler'
 	gcc -I$(INCLUDE_PATH) -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
-	@echo 'Finished building: $<'
+	@echo '[INFO] Finished building: $<'
 	@echo ' '
 
-# All Target
-all: compiler
+# Run Target
+run: compiler
+	@echo '[INFO] Executing generated binary ./lazy'
+	./lazy
 
 # Compiler Target
 compiler: $(O_FILES)
-	@echo 'Building target: $@'
-	@echo 'Invoking: Cross GCC Linker'
-	gcc  -o "compiler" $(O_FILES)
-	@echo 'Finished building target: $@'
+	@echo '[INFO] Building target: $@'
+	@echo '[INFO] Invoking: Cross GCC Linker'
+	gcc  -o "lazy" $(O_FILES)
+	@echo '[INFO] Finished building target: $@'
+	@echo ' '
 	@echo ' '
 
 # Clean Target
 clean:
-	-$(RM) $(O_FILES) $(C_DEPS) compiler
+	-$(RM) $(O_FILES) $(C_DEPS) lazy
 	-@echo ' '
 
 .PHONY: all clean

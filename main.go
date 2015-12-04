@@ -19,5 +19,5 @@ func main() {
 	defer f.Close()
 
 	fmt.Println("[INFO] Starting compilation for: ", os.Args[1])
-	Analyze(f)
+	os.Exit(Analyze(f))
 }

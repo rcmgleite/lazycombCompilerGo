@@ -14,7 +14,7 @@ var (
 
 var template = `
 #include<stdio.h>
-#include<vm.h>
+#include"vm.h"
 
 int main() {
 	novo_escopo();
@@ -28,7 +28,7 @@ int main() {
 `
 
 func semanticEnterToken(t *Token) {
-	generated.WriteString("	entra(" + t.Value + ");\n")
+	generated.WriteString("	entra('" + t.Value + "');\n")
 	generated.WriteString("	tenta_reduzir();\n")
 }
 
