@@ -43,8 +43,12 @@ func semanticCloseScope() {
 
 func semanticFlushCode() {
 	template = strings.Replace(template, "@PLACEHOLDER", generated.String(), -1)
+	fmt.Println("[INFO] generating compiled file on: ", outputfile)
 	err := ioutil.WriteFile(outputfile, []byte(template), 0644)
 	if err != nil {
 		fmt.Println("[ERROR] Unbale to write output to file.", err.Error())
+	} else {
+		fmt.Println("[INFO] Done!")
 	}
+
 }
