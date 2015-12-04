@@ -8,7 +8,7 @@ ifneq ($(strip $(C_DEPS)),)
 -include $(C_DEPS)
 endif
 
-# Compile all files from src/source
+# Compile all files from vm/
 vm/%.o: vm/%.c
 	@echo ' '
 	@echo '[INFO] Building file: $<'
